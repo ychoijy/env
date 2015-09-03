@@ -1,0 +1,46 @@
+#!/bin/bash
+
+function cw()
+{
+		export WORKSPACE_NAME=$1
+				export WORKSPACE_HOME=$2
+					export CSCOPE_DB=$WORKSPACE_HOME/cscope.out
+
+						cd $WORKSPACE_HOME
+}
+
+
+
+#=======================================#
+# HMA  workspace                        #
+#=======================================#
+alias ksrc='cw KERNEL ~/HMA/linux-3.12.24/'
+alias include='cd $WORKSPACE_HOME/include/'
+
+alias apte='cd ~/HMA/ptescan/'
+
+alias awork='cw SOURCE ~/workspace/study/'
+
+alias alog='tail -f /var/log/syslog'
+alias agrep='watch -n 1 grep nr_free_pages /proc/zoneinfo'
+
+alias astr='stress -m 1 --vm-bytes 2G'
+
+#=======================================#
+# mbchoi  workspace                     #
+#=======================================#
+alias mbchoi='cw KERNEL2 ~/Downloads/handover/linux-2.6.32.custom-3/'
+
+
+#=======================================#
+# memtier execution alias               #
+#=======================================#
+alias runmtier-load='memtier_benchmark -s 192.168.55.11 -p 13333 -P memcache_text -d 512 --ratio=1:0 --key-maximum=1 -c 1 -t 32 -n 31250'
+alias runmtier-get='memtier_benchmark  -s 192.168.55.11 -p 13333 -P memcache_text -d 512 --ratio=0:1 --key-minimum=3 --key-maximum=4 --multi-key-get=10 -c 1 -t 1 -n 5000000'
+
+
+
+alias arirang='ssh ychoijy@arirang.snu.ac.kr'
+
+export PATH=$PATH:/home/ychoijy/pin
+export PATH=$PATH:/home/ychoijy/cpu2006/bin

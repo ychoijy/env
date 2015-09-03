@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CSCOPE_TARGET=""
+
+case $WORKSPACE_NAME in
+    "HIOPSKV" )
+        CSCOPE_TARGET="$WORKSPACE_HOME 
+                        $WORKSPACE_HOME/../memcached-1.4.17";;
+	"CEPH" )
+        CSCOPE_TARGET="$WORKSPACE_HOME";;
+    *)
+        ;;
+esac
+
+#========= build cscope db =============
+
+find $CSCOPE_TARGET \
+         \( -name "*.h" -o -name "*.c" -o -name "*.cpp" -o -name "*.java" -o -name "*.cc" \) \
+         > $WORKSPACE_HOME/cscope.files
+
+         cscope -b -q -i $WORKSPACE_HOME/cscope.files $WORKSPACE_HOME/cscope.out
