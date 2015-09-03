@@ -1,0 +1,38 @@
+#!/bin/bash
+
+function bundle()
+{
+	cd ~
+	# install vim, cscope, universal-ctags tmux xclip(for tmux copy)
+	sudo apt-get install vim cscope universal-ctags tmux xclip
+
+	# install vim plugin manager
+	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+
+	# install tmux plugin manager
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	cd -
+}
+
+function cw()
+{
+	export WORKSPACE_NAME=$1
+	export WORKSPACE_HOME=$2
+	export CSCOPE_DB=$WORKSPACE_HOME/cscope.out
+
+	cd $WORKSPACE_HOME
+}
+
+export PATH=$HOME/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+
+#=======================================#
+alias init_env='bundle'
+alias ksrc='cw KERNEL ~/HMA/linux-3.12.24/'
+alias cscs='cw CSCS $PWD'
+
+alias alog='tail -f /var/log/syslog'
+alias agrep='watch -n 1 grep nr_free_pages /proc/zoneinfo'
+alias astr='stress -m 1 --vm-bytes 2G'
+#=======================================#
