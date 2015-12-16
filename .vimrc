@@ -10,6 +10,7 @@ set hls
 set incsearch
 set mouse=a
 set cindent
+set cc=80
 set cino=(0
 
 colo darkocean
