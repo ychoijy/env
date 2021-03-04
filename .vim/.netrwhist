@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/mckim/etc/dotvim'
-let g:netrw_dirhist_2='/home/mckim/.vim'
-let g:netrw_dirhist_3='/home/mckim/Memcached-Java-Load-Client-master/build'
